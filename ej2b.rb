@@ -6,6 +6,10 @@ def obtener_secuencias
 	fasta.each_entry do |entrada|
 	  secuencias << entrada.to_biosequence
 	end
+	fasta = Bio::FlatFile.open(Bio::FastaFormat, 'respuesta1.fas')
+	fasta.each_entry do |entrada|
+	  secuencias << entrada.to_biosequence
+	end
 	return secuencias
 end
 
