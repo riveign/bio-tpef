@@ -9,19 +9,19 @@ def obtener_secuencias
 	return secuencias
 end
 
-def ejecutar_alineacion(secuencias)	
+def ejecutar_alineacion(secuencias)
 	File.open('ex2b.out', 'w') do |f|
 	  a = Bio::Alignment.new(secuencias)
 	  clustalw = Bio::ClustalW.new
 	  a.do_align(clustalw)
-	  escribir_archivo(clustalw)
+	  escribir_archivo(f, clustalw)
 	end
 end
 
-def escribir_archivo(salida_clustalw)
-	f.write(salida_clustalw.data_stdout)
+def escribir_archivo(file, salida_clustalw)
+	file.write(salida_clustalw.data_stdout)
 end
 
-ejecutar_alineacion(obtener_secuencias())	
+ejecutar_alineacion(obtener_secuencias())
 
 
